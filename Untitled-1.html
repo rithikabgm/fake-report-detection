@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fake Document Detection</title>
+  <style>
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+      color:white;
+    }
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px 40px;
+      background:rgba(0,0,0,0.4);
+      position:sticky;
+      top:0;
+    }
+    nav h1{color:#00ffd5;}
+    nav a{
+      color:white;
+      text-decoration:none;
+      margin-left:20px;
+      font-weight:bold;
+    }
+    nav a:hover{color:#00ffd5;}
+
+    .hero{
+      text-align:center;
+      padding:80px 20px;
+    }
+    .hero h2{font-size:40px;}
+    .hero p{max-width:700px;margin:auto;font-size:18px;}
+
+    .upload-box{
+      background:white;
+      color:#333;
+      max-width:500px;
+      margin:40px auto;
+      padding:30px;
+      border-radius:15px;
+      text-align:center;
+      box-shadow:0 10px 25px rgba(0,0,0,0.3);
+    }
+    .upload-box input{
+      margin:15px 0;
+    }
+    button{
+      background:#00bfa6;
+      border:none;
+      padding:12px 25px;
+      border-radius:8px;
+      color:white;
+      font-size:16px;
+      cursor:pointer;
+    }
+    button:hover{background:#009e88;}
+
+    .result{
+      margin-top:20px;
+      font-size:22px;
+      font-weight:bold;
+    }
+
+    .features{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px;
+      padding:60px 40px;
+    }
+    .card{
+      background:rgba(255,255,255,0.1);
+      padding:25px;
+      border-radius:15px;
+      text-align:center;
+      backdrop-filter:blur(6px);
+    }
+
+    footer{
+      text-align:center;
+      padding:20px;
+      background:rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <h1>DocVerify AI</h1>
+  <div>
+    <a href="#home">Home</a>
+    <a href="#upload">Upload</a>
+    <a href="#features">Features</a>
+    <a href="#about">About</a>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <h2>Fake Document Detection System</h2>
+  <p>Upload certificates, ID cards, or official documents and instantly verify whether they are real or forged using smart AI-powered analysis.</p>
+</section>
+
+<section class="upload-box" id="upload">
+  <h3>Upload Your Document</h3>
+  <input type="file" id="fileInput" />
+  <br />
+  <button onclick="checkDocument()">Verify Now</button>
+  <div class="result" id="result"></div>
+</section>
+
+<section class="features" id="features">
+  <div class="card">⚡ Fast Verification</div>
+  <div class="card">🔒 Secure Uploads</div>
+  <div class="card">📄 Certificate Analysis</div>
+  <div class="card">🤖 AI Detection</div>
+</section>
+
+<section class="hero" id="about">
+  <h2>Why Choose Us?</h2>
+  <p>We help schools, companies, and individuals detect fake certificates and documents with ease and confidence.</p>
+</section>
+
+<footer>
+  © 2026 DocVerify AI | Smart Document Protection
+</footer>
+
+<script>
+  function checkDocument(){
+    const file = document.getElementById("fileInput").value;
+    const result = document.getElementById("result");
+
+    if(!file){
+      result.innerHTML = "⚠ Please upload a file first";
+      result.style.color = "orange";
+      return;
+    }
+
+    // Fake random demo result
+    const isReal = Math.random() > 0.5;
+
+    if(isReal){
+      result.innerHTML = "✅ This is a Genuine Certificate";
+      result.style.color = "green";
+    } else {
+      result.innerHTML = "❌ This is a Fake Document";
+      result.style.color = "red";
+    }
+  }
+</script>
+
+</body>
+</html>
